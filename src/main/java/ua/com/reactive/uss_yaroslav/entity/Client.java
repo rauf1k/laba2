@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class Client { // або змінити на Client, якщо треба
-    private Long id;
+    private int id;
     private String firstName;
     private String lastName;
     private int age;

@@ -8,12 +8,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Drink {
-    private Long id;
+    private int id;
     private String name;
     private double price;
     private int quantity; // кількість доступних порцій
 
-    public Drink(Long id, String name, double price, int quantity) {
+    public Drink(int id, String name, double price, int quantity) {
         this.id = id;
         this.name = name;
         this.price = price;

@@ -16,12 +16,13 @@ public class GreetingRouter {
 
     @Bean
     public RouterFunction<ServerResponse> route(GreetingHandler greetingHandler) {
-
         return RouterFunctions
                 .route(RequestPredicates.GET("/hello").and(accept(MediaType.APPLICATION_JSON)), greetingHandler::hello)
-                .andRoute(RequestPredicates.GET("/"), greetingHandler::home)
-                .andRoute(RequestPredicates.GET("/users"), greetingHandler::getClients)
-                .andRoute(RequestPredicates.GET("/drinks"), greetingHandler::getDrinks)
-                .andRoute(RequestPredicates.GET("/ingredients"), greetingHandler::getIngredients);
+                .andRoute(RequestPredicates.GET("/").and(accept(MediaType.TEXT_PLAIN)), greetingHandler::home)
+                .andRoute(RequestPredicates.GET("/clients").and(accept(MediaType.APPLICATION_JSON)), greetingHandler::getClients)
+                .andRoute(RequestPredicates.GET("/drinks").and(accept(MediaType.APPLICATION_JSON)), greetingHandler::getDrinks)
+                .andRoute(RequestPredicates.GET("/ingredients").and(accept(MediaType.APPLICATION_JSON)), greetingHandler::getIngredients)
+                .andRoute(RequestPredicates.POST("/drinks").and(accept(MediaType.APPLICATION_JSON)), greetingHandler::createDrink)
+                .andRoute(RequestPredicates.POST("/ingredients").and(accept(MediaType.APPLICATION_JSON)), greetingHandler::createIngredient);
     }
 }

@@ -8,10 +8,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Account {
-    private Long id;
+    private int id;
     private double balance;
 
-    public Account(Long id, double balance) {
+    public Account(int id, double balance) {
         this.id = id;
         this.balance = balance;
     }
